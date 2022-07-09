@@ -1,0 +1,63 @@
+{{#each foo}}
+{{this}}
+{{/each}}
+{{!-- displays Add New Ticket Purchase Form --}}
+{{!-- <h3>Add New Ticket Purchase:</h3>
+<form id="addTicketPurchase" action="/ticket_purchases" method="post">
+    customerID: 
+    <select name='customerID'>  
+        {{#each customers}}
+        <option value="{{customerID}}">{{customerID}}</option>
+        {{/each}}
+    </select><br>
+    showingID:
+    <select name='showingID'> 
+        {{#each showings}}
+        <option value="{{showingID}}">{{showingID}}</option>
+        {{/each}}
+    </select><br>
+
+    ticketPrice:    <input type="text" name="ticketPrice"><br>
+    <input type="submit" value="Submit">    
+</form>
+<br/> --}}
+
+<h3>Add Task:</h3>
+<form id="addTask" action="/tasklist" method="post">
+    {{!-- customerID: 
+    <select name='customerID'>  
+        {{#each customers}}
+        <option value="{{customerID}}">{{customerID}}</option>
+        {{/each}}
+    </select><br> --}}
+    {{!-- showingID:
+    <select name='showingID'> 
+        {{#each showings}}
+        <option value="{{showingID}}">{{showingID}}</option>
+        {{/each}}
+    </select><br> --}}
+
+    taskDetails:    <input type="text" name="taskDetails"><br>
+    <input type="submit" value="Submit">    
+</form>
+<br/>
+
+{{!-- displays TaskList Database --}}
+<br>
+<h3>TaskList Database:</h3>  <!--working!-->
+<table class="table table-striped">
+    <thead> 
+        <th>taskID</th> 
+        <th>taskDetails</th> 
+    </thead> 
+    <tbody>
+        {{#each tasklist}} 
+        <tr> 
+            <td>{{id}}</td>
+            <td>{{taskDetails}}</td> 
+            <td><button onclick="deleteTask({{id}})">Delete</button></td>  <!-- updated, not tested -->
+            <td><a href="/tasklist/{{id}}">Update</a></td>  <!-- updated, not tested -->
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 

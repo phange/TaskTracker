@@ -23,6 +23,7 @@ app.set('mysql', mysql);
 app.use('/movies', require('./movies.js')); 
 app.use('/customers', require('./customers.js'));
 app.use('/ticket_purchases', require('./ticketpurchases.js'));
+app.use('/tasklist', require('./tasklist.js'));
 app.use('/showings', require('./showings.js')); 
 app.use('/genres', require('./genres.js')); 
 app.use('/', express.static('public'));

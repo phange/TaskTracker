@@ -1,0 +1,23 @@
+<html>
+    <h1>Update ticketID={{tasklist.taskID}}</h1>
+    <form id="update-task" action="/tasklist" method="post">
+        {{!-- customerID: 
+        <select name='customerID'>  
+            {{#each customers}}
+            <option value="{{customerID}}">{{customerID}}</option>
+            {{/each}}
+        </select><br>
+        showingID:
+        <select name='showingID'> 
+            {{#each showings}}
+            <option value="{{showingID}}">{{showingID}}</option>
+            {{/each}}
+        </select><br> --}}
+        {{!-- customerID:    <input type="text" name="customerID" value="{{ticketpurchase.customerID}}"><br>
+        showingID:    <input type="text" name="showingID" value="{{ticketpurchase.showingID}}"><br>
+        ticketPrice:    <input type="text" name="ticketPrice" value="{{ticketpurchase.ticketPrice}}"><br> --}}
+        taskDetails:    <input type="text" name="taskDetails" value="{{tasklist.taskDetails}}"><br>
+        
+    </form>
+    <button onclick="updatetask({{takstlist.taskID}})">Update</button>   
+</html>

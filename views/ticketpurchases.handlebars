@@ -1,7 +1,8 @@
 {{#each foo}}
 {{this}}
 {{/each}}
-<h3>Add New Ticket Purchase:</h3>
+{{!-- displays Add New Ticket Purchase Form --}}
+<h3>Add New Ticket Purchase1:</h3>
 <form id="addTicketPurchase" action="/ticket_purchases" method="post">
     customerID: 
     <select name='customerID'>  
@@ -21,6 +22,7 @@
 </form>
 <br/>
 
+{{!-- displays Ticket_Purchases Database --}}
 <br>
 <h3>Ticket_Purchases Database:</h3>  <!--working!-->
 <table class="table table-striped">
