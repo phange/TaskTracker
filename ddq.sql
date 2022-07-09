@@ -34,7 +34,7 @@ CREATE TABLE `Movies` (
   `movieDuration` INT(11),
   `movieRestriction` VARCHAR(255),
   `movieDescription` VARCHAR(255),
-  PRIMARY KEY (`movieID`),
+  PRIMARY KEY (`movieID`)
   FOREIGN KEY (`genreID`) REFERENCES `Genres` (`genreID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -64,7 +64,7 @@ CREATE TABLE `Showings` (
   
 ) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=latin1;
 
--- Insert values
+-- Insert values into Showings
 INSERT INTO `Showings` (movieID, roomID, startTime, endTime, startDate, endDate, capacity)
 VALUES
 (1,1, '01:00:00', '03:30:00', '2021-05-01', '2021-05-30', 50),
@@ -85,13 +85,13 @@ CREATE TABLE `Ticket_Purchases` (
   FOREIGN KEY (`customerID`) REFERENCES `Customers` (`customerID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
--- Insert values
+-- Insert values into Ticket Purchases
 INSERT INTO `Ticket_Purchases` (customerID, showingID, ticketPrice)
-VALUES (5, 162, 20.00);
+VALUES (5, 159, 20.00);
 INSERT INTO `Ticket_Purchases` (customerID, showingID, ticketPrice)
-VALUES (6, 163, 20.00);
+VALUES (6, 160, 20.00);
 INSERT INTO `Ticket_Purchases` (customerID, showingID, ticketPrice)
-VALUES (7, 164, 20.00);
+VALUES (7, 161, 20.00);
 
 -- Genres Page --
 DROP TABLE IF EXISTS `Genres`;
