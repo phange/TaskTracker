@@ -48,6 +48,7 @@ module.exports = function(){
         });
     }
 
+    // for updating a single ticket purchase
     function getTicketPurchase(res, mysql, context, id, complete){
         var sql = "SELECT ticketID, customerID, showingID, ticketPrice FROM Ticket_Purchases WHERE ticketID=?";
         var inserts = [id];
