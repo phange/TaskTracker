@@ -2,6 +2,40 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
+    // helper function to populate movies dropdown
+    function getMovies(res, mysql, context, complete){
+        mysql.pool.query("SELECT movieID, movieTitle, genreID, movieDuration, movieRestriction, movieDescription FROM Movies", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.movies = results;
+            complete();
+        });
+    }    
+
+    function getShowings(res, mysql, context, complete){
+        mysql.pool.query("SELECT showingID, movieID, roomID, startTime, endTime, startDate, endDate, capacity FROM Showings", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.showings = results;
+            complete();
+        });
+    }   
+
+    function getCustomers(res, mysql, context, complete){
+        mysql.pool.query("SELECT customerID, customerName, customerType, customerEmail FROM Customers", function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.customers = results;
+            complete();
+        });
+    }
+
     // helper function to pull the entire TaskList db as 'results' which is stored into context.tasklist for access by Handlebars as 'tasklist'
     function getTaskList(res, mysql, context, complete){
         mysql.pool.query("SELECT taskID as id, taskDetails FROM TaskList", function(error, results, fields){
@@ -87,10 +121,10 @@ module.exports = function(){
         var mysql = req.app.get('mysql');
         console.log(req.body)
         var sql = "UPDATE TaskList SET taskDetails=? WHERE taskID=?";
-        var inserts = [req.body.taskDetails, req.params.id]; /* might need to double check this */
-        // req.params.id is reading "undefined"
-        console.log("req.params.id")
-        console.log(JSON.stringify(req.params.id))
+        var inserts = [req.body.taskDetails, req.body.id]; /* might need to double check this */
+        // req.params.id is reading "undefined", tried req.body.id
+        console.log("req.body.id")
+        console.log(JSON.stringify(req.body.id))
         // console.log("inserts")
         // console.log(JSON.stringify(inserts))
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
