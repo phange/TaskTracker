@@ -20,12 +20,7 @@ app.set('view engine', 'handlebars');
 // app.set('port', process.argv[2]);
 app.set('port', 7919)   // sets port on flip1.engr.oregonstate.edu:8953 or 7919
 app.set('mysql', mysql);
-app.use('/movies', require('./movies.js')); 
-app.use('/customers', require('./customers.js'));
-app.use('/ticket_purchases', require('./ticketpurchases.js'));
 app.use('/tasklist', require('./tasklist.js'));
-app.use('/showings', require('./showings.js')); 
-app.use('/genres', require('./genres.js')); 
 app.use('/', express.static('public'));
 
 

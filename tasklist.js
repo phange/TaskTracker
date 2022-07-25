@@ -120,9 +120,13 @@ module.exports = function(){
     router.put('/:id', function(req, res){
         var mysql = req.app.get('mysql');
         console.log(req.body)
-        console.log(req.params.id)
         var sql = "UPDATE TaskList SET taskDetails=? WHERE taskID=?";
         var inserts = [req.body.taskDetails, req.params.id]; /* might need to double check this */
+        // req.params.id is reading "undefined"
+        console.log("req.params.id")
+        console.log(JSON.stringify(req.params.id))
+        // console.log("inserts")
+        // console.log(JSON.stringify(inserts))
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(error)

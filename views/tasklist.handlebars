@@ -24,20 +24,7 @@
 
 <h3>Step 1. Add Task:</h3>
 <form id="addTask" action="/tasklist" method="post">
-    {{!-- customerID: 
-    <select name='customerID'>  
-        {{#each customers}}
-        <option value="{{customerID}}">{{customerID}}</option>
-        {{/each}}
-    </select><br> --}}
-    {{!-- showingID:
-    <select name='showingID'> 
-        {{#each showings}}
-        <option value="{{showingID}}">{{showingID}}</option>
-        {{/each}}
-    </select><br> --}}
-
-    taskDetails:    <input type="text" name="taskDetails"><br>
+    taskDetails:    <input type="text" name="taskDetails" value = "add new task here"><br>
     <input type="submit" value="Submit">    
 </form>
 <br/>
@@ -55,7 +42,7 @@
         <tr> 
             <td>{{id}}</td>
             <td>{{taskDetails}}</td> 
-            <td><button onclick="deleteTask({{id}})">Delete</button></td>  <!-- updated, not tested -->
+            <td><button onclick="deleteTask({{id}})">Delete</button></td>              
             <td><a href="/tasklist/{{id}}">Update</a></td>  <!-- updated, not tested -->
         </tr> 
         {{/each}} 

@@ -1,9 +1,9 @@
 <html>
-    <h1>Step 3. Update taskID={{task.id}}</h1>
+     <h1>Step 3. Update taskID={{task.taskID}}</h1>  {{!-- task.id, task.taskID, id all don't work--}}
     <form id="update-task" action="/tasklist" method="post">
 
         taskDetails:    <input type="text" name="taskDetails" value="{{task.taskDetails}}"><br>
         
     </form>
-    <button onclick="updateTask({{task.id}})">Update</button>  
+    <button onclick="updateTask({{task.taskID}})">Update</button>  
 </html>
