@@ -2,40 +2,6 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    // helper function to populate movies dropdown
-    function getMovies(res, mysql, context, complete){
-        mysql.pool.query("SELECT movieID, movieTitle, genreID, movieDuration, movieRestriction, movieDescription FROM Movies", function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.movies = results;
-            complete();
-        });
-    }    
-
-    function getShowings(res, mysql, context, complete){
-        mysql.pool.query("SELECT showingID, movieID, roomID, startTime, endTime, startDate, endDate, capacity FROM Showings", function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.showings = results;
-            complete();
-        });
-    }   
-
-    function getCustomers(res, mysql, context, complete){
-        mysql.pool.query("SELECT customerID, customerName, customerType, customerEmail FROM Customers", function(error, results, fields){
-            if(error){
-                res.write(JSON.stringify(error));
-                res.end();
-            }
-            context.customers = results;
-            complete();
-        });
-    }
-
     // helper function to pull the entire TaskList db as 'results' which is stored into context.tasklist for access by Handlebars as 'tasklist'
     function getTaskList(res, mysql, context, complete){
         mysql.pool.query("SELECT taskID as id, taskDetails FROM TaskList", function(error, results, fields){
