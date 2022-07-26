@@ -125,6 +125,8 @@ module.exports = function(){
         // req.params.id is reading "undefined", tried req.body.id
         console.log("req.body.id")
         console.log(JSON.stringify(req.body.id))
+        // console.log("id")
+        // console.log(id)
         // console.log("inserts")
         // console.log(JSON.stringify(inserts))
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
