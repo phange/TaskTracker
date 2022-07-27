@@ -1,5 +1,5 @@
 csv-microservice README
-
+![plot](./csv-microservice-uml.png)
 
 Setup
 1. User must first download and place the csv-ui.py file into the root directory.
