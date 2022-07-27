@@ -1,6 +1,8 @@
 module.exports = function(){
     var express = require('express');
     var router = express.Router();
+    // microservice
+    var fs = require('fs')
 
     // helper function to populate movies dropdown
     function getMovies(res, mysql, context, complete){
@@ -45,7 +47,19 @@ module.exports = function(){
             }
             context.tasklist = results;
             complete();
+            // console.log(results)
+            // add microservice portion here
+            // sends signal to ui.py
+            data = JSON.stringify(results)
+            fs.writeFile('csv-signal.txt', data, err => {
+                if (err) {
+                  console.error(err);
+                }
+                
+                });         
+            // end microservice   
         });
+
     }
     // helper function to get single task for updating
     function getTask(res, mysql, context, id, complete){
@@ -71,7 +85,7 @@ module.exports = function(){
         getMovies(res, mysql, context, complete);
         getCustomers(res, mysql, context, complete);
         getShowings(res, mysql, context, complete);
-        getTaskList(res, mysql, context, complete);
+        getTaskList(res, mysql, context, complete); 
         function complete(){  // this func make sure all callbacks finish before we go populate the page
             callbackCount++;
             if(callbackCount >= 4){ 
