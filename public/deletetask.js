@@ -1,5 +1,3 @@
-// test file modeled after deletepeople.js
-
 function deleteTask(id){
     $.ajax({
         url: '/tasklist/' + id,

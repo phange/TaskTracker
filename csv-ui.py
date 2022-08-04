@@ -28,7 +28,6 @@ if __name__ == '__main__':
             time.sleep(2)
 
             # check validity of JSON string
-            
             if is_json(line) is True:
                 print("Microservice Started. JSON string valid.")
             else:
