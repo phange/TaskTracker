@@ -1,5 +1,4 @@
 import time
-import os
 import pandas as pd
 import json
 
@@ -31,13 +30,12 @@ if __name__ == '__main__':
             # check validity of JSON string
             
             if is_json(line) is True:
-                print("JSON string valid")
+                print("Microservice Started. JSON string valid.")
             else:
                 print("JSON string invalid")
             
             # do microservice task
             time.sleep(1)
-            print("Microservice started.")
             
             # delete first and last character in string because they are a single set of brackets []
             json_str = line[1:-1]
@@ -49,7 +47,7 @@ if __name__ == '__main__':
             # clear csv-signal.txt so it stops
             csvsignalfile = open("csv-signal.txt", "w")
             csvsignalfile.close()
-            print("Microservice ended. CSV file output to root directory!")
+            print("CSV file output to root directory. Microservice ended.")
 
         else:
             pass
