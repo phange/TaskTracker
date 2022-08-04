@@ -47,7 +47,7 @@ if __name__ == '__main__':
             # clear csv-signal.txt so it stops
             csvsignalfile = open("csv-signal.txt", "w")
             csvsignalfile.close()
-            print("CSV file output to root directory. Microservice ended.")
+            print("CSV file downloaded to root directory. Microservice ended.")
 
         else:
             pass
