@@ -1,7 +1,6 @@
 module.exports = function(){
     var express = require('express');
     var router = express.Router();
-    // microservice
     var fs = require('fs')
 
     // helper function to populate movies dropdown
@@ -144,7 +143,7 @@ module.exports = function(){
         var mysql = req.app.get('mysql');
         console.log(req.body)
         var sql = "UPDATE TaskList SET taskDetails=? WHERE taskID=?";
-        var inserts = [req.body.taskDetails, req.body.id]; /* might need to double check this */
+        var inserts = [req.body.taskDetails, req.body.id]; 
         // req.params.id is reading "undefined", tried req.body.id
         console.log("req.body.id")
         console.log(JSON.stringify(req.body.id))
@@ -161,7 +160,6 @@ module.exports = function(){
     });
 
     /* Route to delete a task, simply returns a 202 upon success. Ajax will handle this. */
-
     router.delete('/:id', function(req, res){
         var mysql = req.app.get('mysql');
         var sql = "DELETE FROM TaskList WHERE taskID = ?";
