@@ -47,9 +47,8 @@ module.exports = function(){
             }
             context.tasklist = results;
             complete();
-            // console.log(results)
-            // add microservice portion here
-            // sends signal to ui.py
+            // add microservice portion here, 
+            // sends signal to csv-ui.py
             data = JSON.stringify(results)
             fs.writeFile('csv-signal.txt', data, err => {
                 if (err) {
@@ -58,6 +57,16 @@ module.exports = function(){
                 
                 });         
             // end microservice   
+
+            // add task count microservice portion here
+            // sends signal to ui.py
+            const db_count = JSON.stringify(results.length);
+            const content = "The amount of tasks you currently have: ";
+              fs.writeFile('signal.txt', JSON.stringify(results), err => {
+            if (err) {
+              console.error(err);
+            }});
+            //
         });
 
     }
@@ -139,10 +148,6 @@ module.exports = function(){
         // req.params.id is reading "undefined", tried req.body.id
         console.log("req.body.id")
         console.log(JSON.stringify(req.body.id))
-        // console.log("id")
-        // console.log(id)
-        // console.log("inserts")
-        // console.log(JSON.stringify(inserts))
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(error)

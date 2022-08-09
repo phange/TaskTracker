@@ -1,27 +1,6 @@
 {{#each foo}}
 {{this}}
 {{/each}}
-{{!-- displays Add New Ticket Purchase Form --}}
-{{!-- <h3>Add New Ticket Purchase:</h3>
-<form id="addTicketPurchase" action="/ticket_purchases" method="post">
-    customerID: 
-    <select name='customerID'>  
-        {{#each customers}}
-        <option value="{{customerID}}">{{customerID}}</option>
-        {{/each}}
-    </select><br>
-    showingID:
-    <select name='showingID'> 
-        {{#each showings}}
-        <option value="{{showingID}}">{{showingID}}</option>
-        {{/each}}
-    </select><br>
-
-    ticketPrice:    <input type="text" name="ticketPrice"><br>
-    <input type="submit" value="Submit">    
-</form>
-<br/> --}}
-
 <h3>Step 1. Add Task:</h3>
 <form id="addTask" action="/tasklist" method="post">
     taskDetails:    <input type="text" name="taskDetails" value = "add new task here"><br>
@@ -31,7 +10,7 @@
 
 {{!-- displays TaskList Database --}}
 <br>
-<h3>Step 2. View TaskList Database:</h3>  <!--working!-->
+<h3>Step 2. View TaskList Database:</h3>
 <table class="table table-striped">
     <thead> 
         <th>taskID</th> 
@@ -43,7 +22,7 @@
             <td>{{id}}</td>
             <td>{{taskDetails}}</td> 
             <td><button onclick="deleteTask({{id}})">Delete</button></td>              
-            <td><a href="/tasklist/{{id}}">Update</a></td>  <!-- updated, not tested -->
+            <td><a href="/tasklist/{{id}}">Update</a></td>
         </tr> 
         {{/each}} 
     </tbody> 
